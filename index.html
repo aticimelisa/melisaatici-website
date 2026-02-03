@@ -54,6 +54,27 @@
         border-radius: var(--radius);
         box-shadow: var(--shadow);
         position: relative;
+
+        transform-origin: center;
+      }
+
+      /* ✅ SABİT küçülme: 520 altına düşünce her şey tek oranla küçülür */
+      @media (max-width: 520px) {
+        .card {
+          transform: scale(0.7);
+        }
+
+        .title {
+          font-size: 60px;
+        }
+
+        .nav {
+          font-size: 15px;
+        }
+
+        .chip {
+          font-size: 11px;
+        }
       }
 
       /* --- TOPBAR --- */
@@ -66,7 +87,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 10px;
-      } /* * Burayı değiştirdim (topbar ekledim) */
+      }
 
       /* Top small tags */
       .chip {
@@ -79,20 +100,19 @@
         display: inline-flex;
         align-items: center;
         white-space: nowrap;
-
-        text-decoration: none; /* * Burayı değiştirdim */
-        color: var(--ink); /* * Burayı değiştirdim */
-      } /* * Burayı değiştirdim (absolute kaldırıp inline-flex yaptım) */
+        text-decoration: none;
+        color: var(--ink);
+      }
 
       .chip.xyz {
         padding: 4px 7px;
         letter-spacing: 0.3px;
-      } /* * Burayı değiştirdim (right/left absolute kaldırıldı) */
+      }
 
       .dot {
-        position: absolute; /* * Burayı değiştirdim */
-        top: 50%; /* * Burayı değiştirdim */
-        transform: translateY(-50%); /* * Burayı değiştirdim */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         left: 31%;
 
         width: 10px;
@@ -108,9 +128,9 @@
         top: 30px;
         margin: 0;
 
-        font-family: "Amarante", serif; /* * Burayı değiştirdim */
-        font-weight: 400; /* * Burayı değiştirdim */
-        font-style: normal; /* * Burayı değiştirdim */
+        font-family: "Amarante", serif;
+        font-weight: 400;
+        font-style: normal;
 
         font-size: 76px;
         letter-spacing: 1px;
@@ -150,7 +170,6 @@
       <div class="topbar">
         <span class="dot"></span>
 
-        <!-- * Burayı değiştirdim (yeni container) -->
         <a
           class="chip"
           href="https://www.instagram.com/melisaa.archive"
@@ -159,7 +178,6 @@
         >
           @melisaa.archive
         </a>
-        <!-- * Burayı değiştirdim -->
 
         <div class="chip xyz">COM</div>
       </div>
