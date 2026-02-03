@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Melisa Atıcı Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Yuji+Syuku&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #eaff37;
+        --card: #ffffff;
+        --ink: #0a0a0a;
+        --border: #d7d7d7;
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        height: 100vh;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        color: var(--ink);
+      }
+
+      /* Center card */
+      .card {
+        width: 472px;
+        height: 140px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+
+      /* --- TOPBAR --- */
+      .topbar {
+        position: absolute;
+        top: 10px;
+        left: 16px;
+        right: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      } /* * Burayı değiştirdim (topbar ekledim) */
+
+      /* Top small tags */
+      .chip {
+        font-size: 12px;
+        padding: 4px 8px;
+        border: 1px solid #cfcfcf;
+        border-radius: 4px;
+        background: #fff;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+
+        text-decoration: none; /* * Burayı değiştirdim */
+        color: var(--ink); /* * Burayı değiştirdim */
+      } /* * Burayı değiştirdim (absolute kaldırıp inline-flex yaptım) */
+
+      .chip.xyz {
+        padding: 4px 7px;
+        letter-spacing: 0.3px;
+      } /* * Burayı değiştirdim (right/left absolute kaldırıldı) */
+
+      .dot {
+        position: absolute; /* * Burayı değiştirdim */
+        top: 50%; /* * Burayı değiştirdim */
+        transform: translateY(-50%); /* * Burayı değiştirdim */
+        left: 31%;
+
+        width: 10px;
+        height: 10px;
+        background: var(--ink);
+        border-radius: 999px;
+      }
+
+      /* Main title */
+      .title {
+        position: absolute;
+        left: 18px;
+        top: 30px;
+        margin: 0;
+
+        font-family: "Amarante", serif; /* * Burayı değiştirdim */
+        font-weight: 400; /* * Burayı değiştirdim */
+        font-style: normal; /* * Burayı değiştirdim */
+
+        font-size: 76px;
+        letter-spacing: 1px;
+        transform: scaleX(1.02);
+        white-space: nowrap;
+      }
+
+      /* Nav row */
+      .nav {
+        position: absolute;
+        left: 18px;
+        bottom: 6px;
+        display: flex;
+        gap: 22px;
+        font-size: 18px;
+
+        font-family: "Yuji Syuku", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: var(--ink);
+        transition: color 0.12s ease;
+      }
+
+      .nav a:hover {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.45);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="card" aria-label="Melisa Atıcı card">
+      <div class="topbar">
+        <span class="dot"></span>
+
+        <!-- * Burayı değiştirdim (yeni container) -->
+        <a
+          class="chip"
+          href="https://www.instagram.com/melisaa.archive"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @melisaa.archive
+        </a>
+        <!-- * Burayı değiştirdim -->
+
+        <div class="chip xyz">COM</div>
+      </div>
+
+      <h1 class="title">MELISA ATICI</h1>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#lab">Lab</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </main>
+  </body>
+</html>
