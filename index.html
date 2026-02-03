@@ -58,8 +58,40 @@
         transform-origin: center;
       }
 
-      /* ✅ SABİT küçülme: 520 altına düşünce her şey tek oranla küçülür */
-      @media (max-width: 520px) {
+      /* ✅ Scalable page high sensibilty */
+
+      @media (max-width: 410px) {
+        .card {
+          transform: scale(0.7);
+        }
+
+        .title {
+          font-size: 64px !important;
+        }
+      }
+
+      @media (min-width: 410px) and (max-width: 420px) {
+        .card {
+          transform: scale(0.7);
+        }
+
+        .title {
+          font-size: 66px !important;
+        }
+      }
+
+      @media (min-width: 420px) and (max-width: 430px) {
+        .card {
+          transform: scale(0.7);
+        }
+
+        .title {
+          font-size: 68px !important;
+        }
+      }
+
+      /* ✅ This one is for iphone 16 pro*/
+      @media (min-width: 430px) and (max-width: 440px) {
         .card {
           transform: scale(0.7);
         }
@@ -67,14 +99,37 @@
         .title {
           font-size: 70px !important;
         }
+      }
 
-
-        .nav {
-          font-size: 15px;
+      @media (min-width: 440px) and (max-width: 450px) {
+        .card {
+          transform: scale(0.7);
         }
 
-        .chip {
-          font-size: 11px;
+        .title {
+          font-size: 71.5px !important;
+        }
+      }
+
+      @media (min-width: 450px) and (max-width: 460px) {
+        .card {
+          transform: scale(0.7);
+        }
+
+        .title {
+          font-size: 73px !important;
+        }
+      }
+
+      @media (min-width: 460px) and (max-width: 500px) {
+        .card {
+          transform: scale(0.7);
+        }
+      }
+
+      @media (min-width: 500px) and (max-width: 600px) {
+        .card {
+          transform: scale(0.8);
         }
       }
 
