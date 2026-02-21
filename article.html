@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Articles • Melisa Atıcı</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Yuji+Syuku&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #eaff37;
+        --card: #ffffff;
+        --ink: #0a0a0a;
+        --border: #d7d7d7;
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 18px 14px 42px;
+      }
+
+      /* --- HEADER CARD --- */
+      .hero {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        padding: 18px 18px 16px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .chip {
+        font-size: 12px;
+        padding: 4px 8px;
+        border: 1px solid #cfcfcf;
+        border-radius: 4px;
+        background: #fff;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        text-decoration: none;
+        color: var(--ink);
+        user-select: none;
+      }
+
+      .chip.xyz {
+        padding: 4px 7px;
+        letter-spacing: 0.3px;
+      }
+
+      .title-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .title {
+        margin: 0;
+        font-family: "Amarante", serif;
+        font-weight: 400;
+        letter-spacing: 0.8px;
+        transform: scaleX(1.01);
+        font-size: 54px;
+        line-height: 1.02;
+      }
+
+      .subtitle {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        opacity: 0.8;
+        max-width: 56ch;
+      }
+
+      .navline {
+        margin-top: 14px;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: "Yuji Syuku", serif;
+        font-size: 18px;
+      }
+
+      .navline a {
+        text-decoration: none;
+      }
+
+      .navline a:hover {
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      /* --- LIST --- */
+      .list {
+        margin-top: 16px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .row {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 14px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 140ms ease,
+          box-shadow 140ms ease;
+      }
+
+      .row:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.23);
+      }
+
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      time {
+        font-style: normal;
+      }
+
+      .year {
+        border: 1px solid #cfcfcf;
+        border-radius: 999px;
+        padding: 3px 8px;
+        background: #fff;
+      }
+
+      .headline {
+        margin: 10px 0 6px;
+        font-family: "Yuji Syuku", serif;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1.12;
+        letter-spacing: 0.2px;
+      }
+
+      .desc {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        opacity: 0.86;
+        line-height: 1.45;
+      }
+
+      .tags {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        border: 1px solid #cfcfcf;
+        background: #fff;
+        border-radius: 999px;
+        padding: 4px 8px;
+        opacity: 0.95;
+      }
+
+      /* subtle accent */
+      .ink {
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 130px;
+        height: 130px;
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.08);
+        transform: rotate(12deg);
+        pointer-events: none;
+      }
+
+      /* footer hint */
+      .hint {
+        margin-top: 14px;
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        opacity: 0.75;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="hero" aria-label="Articles header">
+        <div class="topbar">
+          <!-- change "/" to "index.html" if you prefer -->
+          <a class="chip" href="work.html" aria-label="Back to work">← work</a>
+
+          <div style="display: flex; gap: 8px">
+            <div class="chip xyz">ARTICLE</div>
+          </div>
+        </div>
+
+        <div class="title-row">
+          <h1 class="title">ARTICLES</h1>
+          <p class="subtitle">A chronological shelf.</p>
+        </div>
+
+        <nav class="navline" aria-label="Articles navigation">
+          <a href="#latest">Latest</a>
+          <a href="#2026">2026</a>
+          <a href="#2025">2025</a>
+          <a href="#archive">Archive</a>
+        </nav>
+      </header>
+
+      <main class="list" aria-label="Articles list">
+        <!-- LATEST -->
+        <a id="latest" class="row" href="#">
+          <span class="ink" aria-hidden="true"></span>
+
+          <div class="meta">
+            <time datetime="2026-02-21">2026 · Feb 21</time>
+          </div>
+
+          <h2 class="headline">Python Foundations</h2>
+          <p class="desc">
+            An overview of core Python fundamentals, covering syntax basics,
+            logic structures, and initial programming exercises from my learning
+            journey.
+          </p>
+
+          <div class="tags" aria-label="Tags">
+            <span class="tag">IT</span>
+            <span class="tag">AWS</span>
+            <span class="tag">python</span>
+          </div>
+        </a>
+
+        <!-- 2026 -->
+        <a id="2026" class="row" href="#">
+          <span class="ink" aria-hidden="true"></span>
+
+          <div class="meta">
+            <time datetime="2026-02-21">2026 · Feb 21</time>
+          </div>
+
+          <h2 class="headline">MMMMM-Type Article Interface</h2>
+          <p class="desc">
+            An exploration of how cognitive typology shapes interface design.
+            This essay reflects on structuring diverse interests into a
+            navigable system where organization and aesthetics coexist.
+          </p>
+
+          <div class="tags" aria-label="Tags">
+            <span class="tag">meta</span>
+            <span class="tag">web</span>
+            <span class="tag">cognitive science</span>
+          </div>
+        </a>
+
+        <!-- 2025 -->
+        <a id="2025" class="row" href="#">
+          <span class="ink" aria-hidden="true"></span>
+
+          <div class="meta">
+            <time datetime="2025-07-10">2025 · Jul 10</time>
+          </div>
+
+          <h2 class="headline">Older Piece — Still Worth Reading</h2>
+          <p class="desc">
+            Another short abstract. You can keep the list minimal or grow it
+            into a proper archive.
+          </p>
+
+          <div class="tags" aria-label="Tags">
+            <span class="tag">archive</span>
+            <span class="tag">writing</span>
+          </div>
+        </a>
+      </main>
+
+      <p id="archive" class="hint">
+        All content published on this website, including texts, concepts,
+        structures, and design elements, is the intellectual property of Melisa
+        Atıcı. Unauthorized use is prohibited.
+      </p>
+    </div>
+
+    <script>
+      document.documentElement.style.scrollBehavior = "smooth"
+    </script>
+  </body>
+</html>
