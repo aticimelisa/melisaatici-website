@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Python Foundations • Melisa Atıcı</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Yuji+Syuku&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #eaff37;
+        --card: #ffffff;
+        --ink: #0a0a0a;
+        --border: #d7d7d7;
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 18px 14px 42px;
+      }
+
+      /* --- HERO --- */
+      .hero {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        padding: 18px 18px 16px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .chip {
+        font-size: 12px;
+        padding: 4px 8px;
+        border: 1px solid #cfcfcf;
+        border-radius: 4px;
+        background: #fff;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        text-decoration: none;
+        color: var(--ink);
+        user-select: none;
+      }
+
+      .chip.xyz {
+        padding: 4px 7px;
+        letter-spacing: 0.3px;
+      }
+
+      .title-row {
+        display: flex;
+        align-items: flex-start; /* subtitle'ı başlıkla hizalar */
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .title {
+        margin: 0;
+        font-family: "Yuji Syuku", serif;
+        font-weight: 400;
+        letter-spacing: 0.8px;
+        transform: scaleX(1.01);
+        font-size: 54px;
+        line-height: 1.02;
+      }
+
+      .subtitle {
+        margin: 2px 0 0;
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        opacity: 0.85;
+        max-width: 60ch;
+        line-height: 1.4;
+      }
+
+      .meta {
+        margin-top: 12px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        opacity: 0.85;
+      }
+
+      time {
+        font-style: normal;
+      }
+
+      /* subtle accent */
+      .ink {
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 130px;
+        height: 130px;
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.08);
+        transform: rotate(12deg);
+        pointer-events: none;
+      }
+
+      /* --- ARTICLE CARD --- */
+      .paper {
+        margin-top: 16px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 18px;
+      }
+
+      /* reading typography */
+      .content {
+        max-width: 78ch;
+      }
+
+      .content h2 {
+        margin: 18px 0 8px;
+        font-family: "Yuji Syuku", serif;
+        font-weight: 400;
+        font-size: 26px;
+        letter-spacing: 0.2px;
+      }
+
+      .content h3 {
+        margin: 16px 0 8px;
+        font-family: "Yuji Syuku", serif;
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 0.2px;
+        opacity: 0.95;
+      }
+
+      .content p {
+        margin: 0 0 12px;
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        line-height: 1.65;
+        opacity: 0.9;
+      }
+
+      .content ul {
+        margin: 0 0 12px;
+        padding-left: 18px;
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        line-height: 1.65;
+        opacity: 0.9;
+      }
+
+      .content li {
+        margin: 4px 0;
+      }
+
+      blockquote {
+        margin: 14px 0;
+        padding: 10px 12px;
+        border-left: 4px solid rgba(10, 10, 10, 0.25);
+        background: rgba(10, 10, 10, 0.03);
+        border-radius: 10px;
+      }
+
+      blockquote p {
+        margin: 0;
+      }
+
+      /* code styling */
+      pre {
+        margin: 14px 0;
+        padding: 12px;
+        border: 1px solid #cfcfcf;
+        border-radius: 12px;
+        background: #fff;
+        overflow: auto;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+      }
+
+      code {
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+      }
+
+      .inline-code {
+        border: 1px solid #cfcfcf;
+        background: #fff;
+        border-radius: 8px;
+        padding: 1px 6px;
+      }
+
+      /* --- FOOTER NAV --- */
+      .foot {
+        margin-top: 14px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        opacity: 0.85;
+      }
+
+      .foot a {
+        text-decoration: none;
+        border: 1px solid #cfcfcf;
+        background: #fff;
+        border-radius: 10px;
+        padding: 8px 10px;
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .foot a:hover {
+        opacity: 0.75;
+      }
+
+      .fineprint {
+        margin-top: 10px;
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        opacity: 0.75;
+      }
+
+      /* --- SITE FOOTER --- */
+      .site-footer {
+        margin-top: -10px;
+        padding: 18px 14px 26px;
+
+        text-align: center;
+
+        font-family: "Space Mono", monospace;
+        font-size: 13px; /* fineprint’ten bir tık büyük */
+        opacity: 0.8;
+      }
+
+      .copyright-symbol {
+        font-size: 1.8em;
+        vertical-align: -7.8px;
+      }
+
+      @media (max-width: 520px) {
+        .title {
+          font-size: 40px;
+        }
+        .paper {
+          padding: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="hero" aria-label="Article header">
+        <span class="ink" aria-hidden="true"></span>
+
+        <div class="topbar">
+          <a class="chip" href="../article.html" aria-label="Back to Articles"
+            >← articles</a
+          >
+        </div>
+
+        <div class="title-row">
+          <h1 class="title">Python Foundations</h1>
+          <p class="subtitle">
+            An overview of core Python fundamentals, covering syntax basics,
+            logic structures, and initial programming exercises from my learning
+            journey.
+          </p>
+        </div>
+
+        <div class="meta" aria-label="Article meta">
+          <time datetime="2026-02-21">2026 · Feb 21</time>
+          <span>•</span>
+          <span>Reading time: ~6 min</span>
+          <span>•</span>
+          <span>Version: v1</span>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+          "
+        >
+          <span class="chip">IT</span>
+          <span class="chip">AWS</span>
+          <span class="chip">python</span>
+        </div>
+      </header>
+
+      <article class="paper" aria-label="Article content">
+        <div class="content">
+          <h2>What This Note Covers</h2>
+          <p>
+            This is a living summary of what I learned while starting Python.
+            I’m focusing on fundamentals that actually change how I think: data,
+            control flow, functions, and small habits that prevent bugs.
+          </p>
+
+          <h2>Key Concepts</h2>
+          <ul>
+            <li>
+              Variables and basic types (strings, integers, floats, booleans)
+            </li>
+            <li>Conditionals and loops as “structure for decisions”</li>
+            <li>Functions for reuse and clarity</li>
+            <li>Lists and dictionaries as everyday containers</li>
+            <li>Reading error messages without panic</li>
+          </ul>
+
+          <h2>Small Examples</h2>
+          <p>
+            I prefer short examples that show structure. For instance, a guard
+            clause before doing any work:
+            <span class="inline-code">if not items: return</span>
+          </p>
+
+          <pre><code># Example placeholder
+def summarize(items):
+    if not items:
+        return {"count": 0, "message": "empty"}
+    return {"count": len(items), "message": "ok"}</code></pre>
+
+          <blockquote>
+            <p>
+              A tiny rule I’m keeping: “Make the structure obvious before
+              optimizing anything.”
+            </p>
+          </blockquote>
+
+          <h2>Next Steps</h2>
+          <p>
+            Next, I’ll write a second note focused on building small scripts and
+            developing a repeatable debugging workflow.
+          </p>
+        </div>
+
+        <div class="foot" aria-label="Article navigation">
+          <a href="../article.html">← Back to list</a>
+          <a href="#">Next →</a>
+        </div>
+      </article>
+    </div>
+
+    <footer class="site-footer">
+      <span class="copyright-symbol">&#169;</span> 2026 Melisa Atıcı.
+    </footer>
+
+    <script>
+      document.documentElement.style.scrollBehavior = "smooth"
+    </script>
+  </body>
+</html>
